@@ -1,0 +1,9 @@
+version: '3.3'
+
+services:
+  mecontrola-chat:
+    build: .
+    restart: unless-stopped
+    ports:
+      - 5000:80
+  
