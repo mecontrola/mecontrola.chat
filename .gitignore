@@ -19,6 +19,8 @@
 */[Oo]bj/
 */[Ll]og/
 */[Ll]ogs/
+*/[Nn]ode_[Mm]odules/
+*/*-lock.json
 
 # Visual Studio 2015/2017 cache/options directory
 .vs/
