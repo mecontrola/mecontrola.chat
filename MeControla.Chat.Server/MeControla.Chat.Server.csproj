@@ -1,0 +1,36 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+	<UserSecretsId>com.mecontrola.chat-de918b9e-db84-4635-a60d-4626f0bc97ff</UserSecretsId>
+	<DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="bundleconfig.jsno" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="bundleconfig.jsno" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\lib\fontawesome\dist\" />
+    <Folder Include="wwwroot\lib\jquery\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BuildBundlerMinifier" Version="3.2.449" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MeControla.Core\MeControla.Core.csproj" />
+    <ProjectReference Include="..\MeControla.Chat.Core\MeControla.Chat.Core.csproj" />
+    <ProjectReference Include="..\MeControla.Chat.Data\MeControla.Chat.Data.csproj" />
+  </ItemGroup>
+
+  <!--<Target Name="MyPreCompileTarget" BeforeTargets="Build">
+    <Exec Command="gulp min" />
+  </Target>-->
+
+</Project>

@@ -9,8 +9,9 @@ O chat deve ser utilizado por linha de comando de acordo as informações contid
 |msgall|envia uma mensagem pública para todos os usuários da sala|
 |public|envia uma mensagem pública para um usuário específico da sala|
 |private|envia uma mensagem privada para um usuário específico da sala|
+|createroom|cria uma sala|
 |changeroom|muda o usuário de sala|
-|exit|sai do chat (indisponível)|
+|exit|sai do chat|
 |ping|envia requisições para o servidor para manter o usuário ativo (indisponível)|
 ----
 Os próximos itens explicam como devem ser utilizados cada um dos comandos.
@@ -59,6 +60,15 @@ O comando **private** permite o envio de uma mensagem particular a um usuário. 
 ```
 /private mk-2 somente para o usuário mk-2
 ```
+#### CreateRoom
+Permite que o usuário crie novas salas para serem utilizadas por outros usuários conectados. Para criar a sala é necessário informar barra concatenado com a palavra **createroom** e o nome da sala no parâmetro **{roomname}**.
+```
+/createroom {roomname}
+```
+**Exemplo:** Criar a sala *DBA*.
+```
+/createroom DBA
+```
 #### ChangeRoom
 Caso o usuário deseja mudar de sala, o comando **changeroom** realiza essa alteração. Ao executá-lo, uma notificação é enviada para os participantes da sala anterior, informando que o usuário saiu da sala e envia uma notificação para o participantes da nova sala, dizendo que o usuário acabou de entrar na sala. Para mudar a sala é necessário informar barra concatenado com a palavra **changeroom** e o nome da sala no parâmetro **{roomname}**.
 ```
@@ -68,7 +78,7 @@ Caso o usuário deseja mudar de sala, o comando **changeroom** realiza essa alte
 ```
 /changeroom devops
 ```
-#### Exit *(indisponível)*
+#### Exit
 O comando **exit** remove o usuário da sala, notificando os outros participantes da sala que o usuário saiu e encerra a conexão com o servidor. Para executar o comando é necessário informar barra concatenado com a palavra **exit**.
 ```
 /exit
@@ -89,6 +99,20 @@ O comando **ping** é utilizado para verificar a conexão entre cliente e servid
 ----
 Considerações
 ====
-A aplicação foi desenvolvida utilizando C# 9.0 e .Net 5, utilizou-se Entity Framework para conexão com banco de dados, neste caso, foi utilizado o armzenamento dos dados em memória e demonstrou alguns problemas durante a etapa de desenvolvimento, estes ocorriam ao atualizar e remover registros.
-O problema foi resolvido parcialmente atualizando o state da entidade para **EntityState.Detached**, desta forma, permitiu que os dados do usuário pudessem ser atualizados mas, não permitiu que o usuário fosse removido, impedindo que o comando **/exit** funcionasse corretamente.
+A aplicação foi desenvolvida utilizando C# 9.0 e .Net 5, utilizou-se Entity Framework para conexão com banco de dados, neste caso, foi utilizado o armzenamento de dados em memória e demonstrou alguns problemas durante a etapa de desenvolvimento, estes ocorriam ao atualizar e remover registros.
+O problema encontrado:
+> The instance of entity type 'User' cannot be tracked because another instance with the same key value for {'Id'} is already being tracked. When attaching existing entities, ensure that only one entity instance with a given key value is attached. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see the conflicting key values.
+
+A solução encontrada foi:
+````
+protected virtual void Detach(TEntitentity, EntityState entityState)
+{
+    var local = dbSet.Local.FirstOrDefau(itm => itm.Id.Equals(entity.Id));
+    if (local.Id != 0)
+        context.Entry(local).State EntityState.Detached;
+    context.Entry(entity).State entityState;
+}
+````
+Executando esse métodos antes do **SaveChangesAsync**, permite que os dados armazenados possam ser atualizados e removidos. Desta forma, na hora de executar, defina o valor de **EntityState** para **Modified** e **Deleted** ao atualizar e remover.
+
 Próximos passos seriam, remover o armazenamento em memória e utilizar um banco de dados, e melhorar a forma de comunicação, talvez trafegar com binário entre as duas pontas.

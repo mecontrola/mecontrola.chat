@@ -1,0 +1,88 @@
+﻿@model string
+@{
+    ViewData["Title"] = "Chat";
+}
+<header>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">@Settings.Name</a>
+        </div>
+    </nav>
+</header>
+<main class="container">
+    <div class="card">
+        <div class="card-header">
+            @ViewData["Title"]
+        </div>
+        <div class="card-body" id="msgs">
+        </div>
+        <div class="card-footer text-muted">
+            <div class="input-group has-validation">
+                <span class="input-group-text">
+                    <i class="fas fa-terminal"></i>
+                </span>
+                <input type="text" class="form-control" id="MessageField" placeholder="type message and press enter" required>
+                <div class="invalid-feedback">
+                    A text is required.
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+@section Styles {
+    <style>
+        main.container {
+            margin-top: 60px
+        }
+
+        #msgs {
+            overflow-y: scroll;
+            height: 50vh
+        }
+    </style>
+}
+
+@section Scripts {
+    <script>
+    $(function () {
+        var protocol = location.protocol === "https:" ? "wss:" : "ws:";
+        var wsUri = protocol + "//" + window.location.host;
+        var socket = new WebSocket(wsUri);
+
+        socket.onopen = e => {
+            console.log("socket opened", e);
+        };
+
+        socket.onclose = e => {
+            console.log("socket closed", e);
+        };
+
+        socket.onmessage = e => {
+            console.log(e);
+            var $msgs = $('#msgs')
+            $msgs.append(e.data + '<br />')
+                 .scrollTop($msgs.get(0).scrollHeight);
+        };
+
+        socket.onerror = e => {
+            console.error(e.data);
+        };
+
+        $('#MessageField').keypress(function (e) {
+            if (e.which != 13) {
+                return;
+            }
+
+            e.preventDefault();
+
+            var $elm = $(this),
+                message = $elm.val();
+
+            socket.send(message);
+
+            $elm.val('');
+        });
+    });
+    </script>
+}

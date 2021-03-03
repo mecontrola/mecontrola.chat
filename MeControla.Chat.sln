@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MeControla.Chat.Server", "MeControla.Chat.Server\MeControla.Chat.Server.csproj", "{321A8B04-EBE1-47D8-BB48-DA8946E81B11}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MeControla.Chat.Core", "MeControla.Chat.Core\MeControla.Chat.Core.csproj", "{1C01D82B-F3D7-4779-B4D7-065AEAFCA041}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MeControla.Chat.DataStorage", "MeControla.Chat.DataStorage\MeControla.Chat.DataStorage.csproj", "{C5790785-8114-4B22-9EB7-09236199E9E8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MeControla.Chat.Data", "MeControla.Chat.Data\MeControla.Chat.Data.csproj", "{FD1B5F72-DB88-4CD3-AC0F-A9D9892219D0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MeControla.Core", "MeControla.Core\MeControla.Core.csproj", "{400AE334-96D0-41DE-83A2-6CF0302C49D8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MeControla.Chat.Tests", "MeControla.Chat.Tests\MeControla.Chat.Tests.csproj", "{583D06D6-83AB-49BC-AE16-4F02234EBEC5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{321A8B04-EBE1-47D8-BB48-DA8946E81B11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{321A8B04-EBE1-47D8-BB48-DA8946E81B11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{321A8B04-EBE1-47D8-BB48-DA8946E81B11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{321A8B04-EBE1-47D8-BB48-DA8946E81B11}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C01D82B-F3D7-4779-B4D7-065AEAFCA041}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C01D82B-F3D7-4779-B4D7-065AEAFCA041}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C01D82B-F3D7-4779-B4D7-065AEAFCA041}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C01D82B-F3D7-4779-B4D7-065AEAFCA041}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5790785-8114-4B22-9EB7-09236199E9E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5790785-8114-4B22-9EB7-09236199E9E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5790785-8114-4B22-9EB7-09236199E9E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5790785-8114-4B22-9EB7-09236199E9E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD1B5F72-DB88-4CD3-AC0F-A9D9892219D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD1B5F72-DB88-4CD3-AC0F-A9D9892219D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD1B5F72-DB88-4CD3-AC0F-A9D9892219D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD1B5F72-DB88-4CD3-AC0F-A9D9892219D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{400AE334-96D0-41DE-83A2-6CF0302C49D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{400AE334-96D0-41DE-83A2-6CF0302C49D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{400AE334-96D0-41DE-83A2-6CF0302C49D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{400AE334-96D0-41DE-83A2-6CF0302C49D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{583D06D6-83AB-49BC-AE16-4F02234EBEC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{583D06D6-83AB-49BC-AE16-4F02234EBEC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{583D06D6-83AB-49BC-AE16-4F02234EBEC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{583D06D6-83AB-49BC-AE16-4F02234EBEC5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0062667E-B57B-4148-B8CA-A56657C0AFF0}
+	EndGlobalSection
+EndGlobal

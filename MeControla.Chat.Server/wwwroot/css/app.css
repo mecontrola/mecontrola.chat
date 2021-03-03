@@ -1,0 +1,69 @@
+﻿html,
+body.view-signin {
+    height: 100%;
+}
+
+body.view-signin {
+    display: flex;
+    align-items: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color: #f5f5f5;
+}
+
+.form-signin {
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: auto;
+}
+
+    .form-signin .checkbox {
+        font-weight: 400;
+    }
+
+    .form-signin .form-control {
+        position: relative;
+        box-sizing: border-box;
+        height: auto;
+        padding: 10px;
+        font-size: 16px;
+    }
+
+        .form-signin .form-control:focus {
+            z-index: 2;
+        }
+
+    .form-signin input[type="text"] {
+        margin-bottom: -1px;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+
+    .form-signin select {
+        margin-bottom: 10px;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+    }
+
+.app-logo {
+    border-radius: 5px;
+    background: #fff;
+    border: 1px solid #CCC;
+    -webkit-box-shadow: 0px 0px 5px 2px rgba(204,204,204,1);
+    -moz-box-shadow: 0px 0px 5px 2px rgba(204,204,204,1);
+    box-shadow: 0px 0px 5px 2px rgba(204,204,204,1);
+    margin: 0 auto;
+    position: relative;
+    width: 60px;
+    height: 50px;
+}
+
+main.container {
+    margin-top: 60px
+}
+
+#msgs {
+    overflow-y: scroll;
+    height: 50vh
+}
